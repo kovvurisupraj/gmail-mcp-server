@@ -16,6 +16,7 @@ No Google Cloud setup knowledge required — just add it to Claude Desktop and f
 - **Multi-Account** — connect multiple Gmail accounts; switch with one env var
 - **Auto Token Refresh** — OAuth tokens refreshed and persisted automatically
 - **Guided Browser Setup** — first-time setup opens a UI in your browser automatically
+- **Account Dashboard** — manage connected accounts, view token status, and get your Claude Desktop config in one place
 
 ## Setup
 
@@ -45,11 +46,16 @@ Ask Claude anything Gmail-related:
 
 > "Check my Gmail"
 
-A setup page will open in your browser automatically. Follow the on-screen instructions to connect your Gmail account. Takes about 2 minutes. You only do this once.
+A browser setup page opens automatically. Follow the on-screen steps to connect your Gmail account — takes about 2 minutes. You only do this once.
+
+After signing in, you'll be taken to the **account dashboard** where you can:
+- See all connected accounts and their token status
+- Remove accounts with one click
+- Copy a ready-made Claude Desktop config snippet
 
 ### Multiple Accounts
 
-Run the auth command again to add more accounts:
+From the dashboard, click **Add Another Account**, or run:
 
 ```bash
 npx gmail-mcp-server auth
@@ -80,7 +86,7 @@ If only one account is connected, `GMAIL_ACCOUNT` is optional — the server use
 
 | Command | Description |
 |---------|-------------|
-| `npx gmail-mcp-server auth` | Add a Gmail account (opens browser) |
+| `npx gmail-mcp-server auth` | Open the browser dashboard (add or manage accounts) |
 | `npx gmail-mcp-server list-accounts` | List all connected accounts |
 | `npx gmail-mcp-server remove-account <email>` | Remove an account and delete its token |
 
@@ -197,7 +203,7 @@ These files never leave your machine. To revoke access, run `remove-account` or 
 
 ### Setup page opens but credentials form fails
 
-Make sure you created a **Desktop App** OAuth client in Google Cloud Console, not a Web App.
+Make sure you created a **Desktop App** OAuth client in Google Cloud Console, not a Web App. Web App clients reject `localhost` redirect URIs unless explicitly allowlisted.
 
 ### "Multiple accounts found. Set GMAIL_ACCOUNT env var"
 
