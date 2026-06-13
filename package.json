@@ -1,0 +1,56 @@
+{
+  "name": "gmail-mcp-server",
+  "version": "1.0.0",
+  "description": "A production-ready MCP server that connects Claude AI to Gmail",
+  "main": "dist/index.js",
+  "bin": {
+    "gmail-mcp-server": "dist/src/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src/index.js",
+    "dev": "ts-node src/index.ts",
+    "auth": "ts-node scripts/auth-setup.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "gmail",
+    "claude",
+    "anthropic",
+    "ai",
+    "automation",
+    "email",
+    "model-context-protocol"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "express": "^5.2.1",
+    "googleapis": "^144.0.0",
+    "open": "^8.4.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^20.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/gmail-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/gmail-mcp-server/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/gmail-mcp-server#readme"
+}
